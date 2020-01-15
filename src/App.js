@@ -7,13 +7,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      activeUser: null
+      // "id": "wwww",
+      // "name": "Eli"
+    }
+  }
 
   render() {
+  const {activeUser} = this.state;
+
     return (
       <Router>
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <HomePage activeUser={activeUser} />
           </Route>
           <Route exact path="/login">
             <LoginPage />
