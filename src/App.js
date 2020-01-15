@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import DocsPage from './pages/DocsPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import jsonUsers from './data/users'
 
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -11,14 +12,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      activeUser: null
-      // "id": "wwww",
-      // "name": "Eli"
+      activeUser: null,
+      allUsers: jsonUsers
     }
   }
 
   render() {
-  const {activeUser} = this.state;
+  const { activeUser, allUsers } = this.state;
 
     return (
       <Router>
@@ -27,7 +27,7 @@ class App extends React.Component {
             <HomePage activeUser={activeUser} />
           </Route>
           <Route exact path="/login">
-            <LoginPage />
+            <LoginPage allUsers={allUsers}/>
           </Route>
           <Route exact path="/docs">
             <DocsPage />
