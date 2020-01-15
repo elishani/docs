@@ -1,7 +1,8 @@
 import React from 'react';
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import DocsPage from './pages/DocsPage'
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import DocsPage from './pages/DocsPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
