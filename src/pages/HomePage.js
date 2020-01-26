@@ -1,21 +1,14 @@
 import React from 'react';
-import DocsNavbar from "../components/DocsNavbar";
+import SelectBreed from '../components/SelectBreed'
 
-class HomePage extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
+export default class HomePage extends React.Component {
     render() {
-        const { activeUser } = this.props;
+        const { handleSelectBreed } = this.props
         return (
             <div>
-                <DocsNavbar activeUser={activeUser} />
                 <h1>HomePage</h1>
+                <SelectBreed handleSelectBreed={handleSelectBreed} />
             </div>
-        );
+        )
     }
-
 }
-
-export default HomePage;

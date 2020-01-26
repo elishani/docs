@@ -1,42 +1,34 @@
 import React from 'react';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import DocsPage from './pages/DocsPage';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jsonUsers from './data/users'
+import HomePage from './pages/HomePage';
+import SelectBreed from "./components/SelectBreed";
+import ImageOfAllBreeds from "./components/ImageOfAllBreeds";
 
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-
-class App extends React.Component {
-  constructor(props){
+export default class App extends React.Component {
+  constructor(props) {
     super(props);
-
     this.state = {
-      activeUser: null,
-      allUsers: jsonUsers
+      breed: ""
     }
+
+    this.handleSelectBreed = this.handleSelectBreed.bind(this)
+  }
+
+ handleSelectBreed(event) {
+  this.setState({
+      breed: event.target.value
+    });
   }
 
   render() {
-  const { activeUser, allUsers } = this.state;
-
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomePage activeUser={activeUser} />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage allUsers={allUsers}/>
-          </Route>
-          <Route exact path="/docs">
-            <DocsPage />
-          </Route>
-        </Switch>
-      </Router>
+      <div>
+        <h1> App </h1>
+        <SelectBreed handleSelectBreed={this.handleSelectBreed} />
+        <ImageOfAllBreeds />
+      </div>
     );
   }
 
 }
-
-export default App;
